@@ -1,4 +1,6 @@
 const User = require("../models/UserModel");
+const passport = require("passport");
+require("../config/passport-config")(passport);
 
 exports.user_signup_get = (req, res) => {
 	res.send();
@@ -34,9 +36,10 @@ exports.user_login_get = (req, res) => {
 	res.send();
 };
 
-exports.user_login_post = (req, res) => {
-	res.send();
-};
+exports.user_login_post = passport.authenticate("local", {
+	successRedirect: "/dashboard",
+	failureRedirect: "/login"
+});
 
 exports.user_update_get = (req, res) => {
 	res.send();
@@ -51,5 +54,5 @@ exports.user_profile = (req, res) => {
 };
 
 exports.user_dashboard = (req, res) => {
-	res.send();
+	res.send("Welcome to dashboard");
 };

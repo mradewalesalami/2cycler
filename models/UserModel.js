@@ -53,12 +53,12 @@ UserSchema.pre("save", function(next) {
 		});
 	});
 });
-UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+UserSchema.methods.comparePassword = function(password) {
+	bcrypt.compare(password, this.password, function(err, res) {
 		if (err) {
-			return cb(err);
+			return err;
 		}
-		cb(null, isMatch);
+		return res;
 	});
 };
 
