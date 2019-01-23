@@ -2,7 +2,7 @@ const passport = require("passport");
 require("../config/passport-config")(passport);
 
 exports.user_signup_get = (req, res) => {
-	res.send();
+	res.render("signup");
 };
 
 exports.user_signup_post = passport.authenticate("local-signup", {

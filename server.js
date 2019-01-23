@@ -27,8 +27,10 @@ db.on("connected", () => {
 	console.log(`Database connection error: ${err.message}`);
 });
 
-app.set("views", __dirname + "/views");
+app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
+app.use('/static', express.static("public"));
+app.use("/node", express.static(`${__dirname}/node_modules/`));
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(
