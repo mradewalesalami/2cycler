@@ -1,4 +1,3 @@
-const User = require("../models/UserModel");
 const passport = require("passport");
 require("../config/passport-config")(passport);
 
@@ -6,39 +5,22 @@ exports.user_signup_get = (req, res) => {
 	res.send();
 };
 
-exports.user_signup_post = (req, res, next) => {
-	User.findOne({ email: req.body.email }, function(err, user) {
-		if (err) {
-			return next(err);
-		} else if (user) {
-			return res.send("Email available");
-		} else {
-			const newUser = new User({
-				first_name: req.body.first_name,
-				last_name: req.body.last_name,
-				email: req.body.email,
-				d_o_b: req.body.d_o_b,
-				sex: req.body.sex,
-				password: req.body.password,
-				phone_num: { main: req.body.main_num }
-			});
-			newUser.save(function(err) {
-				if (err) {
-					return next(err);
-				}
-				res.send("Sucess");
-			});
-		}
-	});
-};
+exports.user_signup_post = passport.authenticate("local-signup", {
+	successRedirect: "/profile",
+	failureRedirect: "/signup",
+	failureFlash: true,
+	successFlash: true
+});
 
 exports.user_login_get = (req, res) => {
 	res.send();
 };
 
-exports.user_login_post = passport.authenticate("local", {
+exports.user_login_post = passport.authenticate("local-login", {
 	successRedirect: "/dashboard",
-	failureRedirect: "/login"
+	failureRedirect: "/login",
+	failureFlash: true,
+	successFlash: true
 });
 
 exports.user_update_get = (req, res) => {
@@ -55,4 +37,9 @@ exports.user_profile = (req, res) => {
 
 exports.user_dashboard = (req, res) => {
 	res.send("Welcome to dashboard");
+};
+
+exports.user_logout = (req, res) => {
+	req.logout();
+	res.redirect("/");
 };

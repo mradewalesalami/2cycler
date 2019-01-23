@@ -12,5 +12,6 @@ router.get("/edit", user_controller.user_update_get);
 router.patch("/edit", user_controller.user_update_post);
 router.get("/profile", user_controller.user_profile);
 router.get("/dashboard", user_controller.user_dashboard);
+router.get("/logout", user_controller.user_logout);
 
 module.exports = router;
