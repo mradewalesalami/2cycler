@@ -4,10 +4,15 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    block head
+    block title
     link(rel='stylesheet' href='node/bulma/css/bulma.min.css')
     link(rel="stylesheet", href="static/css/style.css")
   body
-    block content
+    .head
+      block header
+    .main
+      block content
+    .foot
+      block footer
     script(src='node/@fortawesome/fontawesome-free/js/all.js')
     script(src="static/js/main.js")

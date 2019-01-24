@@ -1,6 +1,10 @@
 const passport = require("passport");
 require("../config/passport-config")(passport);
 
+exports.homepage = (req, res) => {
+	res.render('home')
+};
+
 exports.user_signup_get = (req, res) => {
 	res.render("signup");
 };
