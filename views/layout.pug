@@ -8,11 +8,31 @@ html(lang="en")
     link(rel='stylesheet' href='node/bulma/css/bulma.min.css')
     link(rel="stylesheet", href="static/css/style.css")
   body
-    .head
-      block header
-    .main
-      block content
-    .foot
-      block footer
+    nav(class="navbar", role="navigation")
+      .navbar-brand
+        a.navbar-item(href="/")
+          img(src="static/images/logo.png", alt="logo", width="112", height="28")
+        a.navbar-burger(role="button", data-target="navigation")
+          span
+          span
+          span
+      #navigation.navbar-menu
+        .navbar-start
+          a.navbar-item(href="/") #[strong HOME]
+          a.navbar-item(href="/about") #[strong ABOUT]
+          a.navbar-item(href="/faq") #[strong FAQ]
+          a.navbar-item(href="/contact-us") #[strong CONTACT US]
+        .navbar-end
+          .navbar-item
+            .buttons
+              a.button.is-link(href="/signup") #[strong Sign Up]
+              a.button.is-link.is-outlined(href="/login") Login
+              
+    block content
+
+    footer.footer.has-background-link
+      .content.has-text-centered
+        p.is-size-3.has-text-black.has-text-weight-bold Made with #[span(class="icon") #[i(class="fas fa-heart has-text-danger")]] and #[span(class="icon") #[i(class="fas fa-coffee has-text-black")]]
+
     script(src='node/@fortawesome/fontawesome-free/js/all.js')
     script(src="static/js/main.js")

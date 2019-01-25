@@ -20,12 +20,6 @@ body {
 	margin-top: 70px;
 	flex-grow: 1;
 }
-.paddng {
-	padding: 1em;
-}
-span {
-	z-index: 0 !important;
-}
 
 @media only screen and (max-width: 600px) {
 }

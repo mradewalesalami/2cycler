@@ -4,60 +4,58 @@ block title
   title Signup
 
 block content
-  .columns.is-centered
-    .column.is-one-third.has-background-light
-      form.paddng(action="", method="post")
-        .field
-          h1.has-text-white.has-text-centered.has-text-weight-bold.has-background-grey.title MEMBER REGISTRATION
-          p.has-text-centered.has-text-weight-bold Please fill in this form to create an account
-        .field
-          label.label.has-text-link(for="firstname") First Name
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="firstname", type="text", name="first_name", placeholder="ex: John", required)
-            span.icon.is-left
-              i.fas.fa-user.has-text-link
-        .field
-          label.label.has-text-link(for="surname") Last Name
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="surname", type="text", name="last_name", placeholder="ex: Doe", required)
-            span.icon.is-left
-              i.fas.fa-user.has-text-link
-        .field
-          label.label.has-text-link(for="email") E-Mail
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="email", type="email", name="email", placeholder="example@yahoo.com", required)
-            span.icon.is-left
-              i.fas.fa-envelope.has-text-link
-        .field
-          label.label.has-text-link(for="password") Password (8 characters minimum)
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="password", type="password", name="password", minlength="8", placeholder="****************", required)
-            span.icon.is-left
-              i.fas.fa-lock.has-text-link
-        .field
-          label.label.has-text-link(for="confirmpassword") Confirm Password
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="confirmpassword", type="password", name="password_confirm", placeholder="****************", required)
-            span.icon.is-left
-              i.fas.fa-lock.has-text-link
-        .field
-          label.label.has-text-link(for="phonenum") Mobile Number
-          .control.has-icons-left
-            input.input.is-medium.is-info(id="phonenum", type="tel", name="main_num", placeholder="ex: 07010001000", required)
-            span.icon.is-left
-              i.fas.fa-mobile-alt.has-text-link
-        .field
-          .control
-            label.label.has-text-link(for="sex") Sex
-            .select.is-info.is-medium.is-fullwidth
-              select(name="sex", id="sex")
-                option(value="choose", disabled selected) Select
-                option(value="male") Male
-                option(value="female") Female
-        .field
-          label.label.has-text-link(for="dob") Birthday
-          .control
-            input.input.is-medium.is-info(id="dob", type="date", name="d_o_b", value="31/01/1800" required)
-        .field
-          .control
-            button.button.is-link.has-text-weight-bold.is-medium.is-fullwidth(type="submit") REGISTER
+  form.box(action="", method="post")
+    .field
+      h1.has-text-white.has-text-centered.has-text-weight-bold.has-background-link.subtitle.box MEMBER REGISTRATION
+      p.has-text-centered.has-text-weight-bold Please fill in this form to create an account
+    .field
+      label.label.has-text-link(for="firstname") First Name
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="firstname", type="text", name="first_name", placeholder="ex: John", required)
+        span.icon.is-left
+          i.fas.fa-user.has-text-link
+    .field
+      label.label.has-text-link(for="surname") Last Name
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="surname", type="text", name="last_name", placeholder="ex: Doe", required)
+        span.icon.is-left
+          i.fas.fa-user.has-text-link
+    .field
+      label.label.has-text-link(for="email") E-Mail
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="email", type="email", name="email", placeholder="example@yahoo.com", required)
+        span.icon.is-left
+          i.fas.fa-envelope.has-text-link
+    .field
+      label.label.has-text-link(for="password") Password (8 characters minimum)
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="password", type="password", name="password", minlength="8", placeholder="****************", required)
+        span.icon.is-left
+          i.fas.fa-lock.has-text-link
+    .field
+      label.label.has-text-link(for="confirmpassword") Confirm Password
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="confirmpassword", type="password", name="password_confirm", placeholder="****************", required)
+        span.icon.is-left
+          i.fas.fa-lock.has-text-link
+    .field
+      label.label.has-text-link(for="phonenum") Mobile Number
+      .control.has-icons-left
+        input.input.is-medium.is-info(id="phonenum", type="tel", name="main_num", placeholder="ex: 07010001000", required)
+        span.icon.is-left
+          i.fas.fa-mobile-alt.has-text-link
+    .field
+      .control
+        label.label.has-text-link(for="sex") Sex
+        .select.is-info.is-medium.is-fullwidth
+          select(name="sex", id="sex")
+            option(value="choose", disabled selected) Select
+            option(value="male") Male
+            option(value="female") Female
+    .field
+      label.label.has-text-link(for="dob") Birthday
+      .control
+        input.input.is-medium.is-info(id="dob", type="date", name="d_o_b", value="31/01/1800" required)
+    .field
+      .control
+        button.button.is-link.has-text-weight-bold.is-medium.is-fullwidth.box(type="submit") REGISTER

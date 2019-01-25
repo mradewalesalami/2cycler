@@ -2,7 +2,7 @@ const passport = require("passport");
 require("../config/passport-config")(passport);
 
 exports.homepage = (req, res) => {
-	res.render('home')
+	res.render("home");
 };
 
 exports.user_signup_get = (req, res) => {
@@ -17,7 +17,7 @@ exports.user_signup_post = passport.authenticate("local-signup", {
 });
 
 exports.user_login_get = (req, res) => {
-	res.send();
+	res.render("login");
 };
 
 exports.user_login_post = passport.authenticate("local-login", {
@@ -28,7 +28,7 @@ exports.user_login_post = passport.authenticate("local-login", {
 });
 
 exports.user_update_get = (req, res) => {
-	res.send();
+	res.render("update");
 };
 
 exports.user_update_post = (req, res) => {
@@ -36,11 +36,23 @@ exports.user_update_post = (req, res) => {
 };
 
 exports.user_profile = (req, res) => {
-	res.send();
+	res.render("profile");
 };
 
 exports.user_dashboard = (req, res) => {
-	res.send("Welcome to dashboard");
+	res.render("dashboard");
+};
+
+exports.about_page = (req, res) => {
+	res.render("about");
+};
+
+exports.faq_page = (req, res) => {
+	res.render("faq");
+};
+
+exports.contact_us = (req, res) => {
+	res.render("contact-us");
 };
 
 exports.user_logout = (req, res) => {

@@ -8,7 +8,7 @@ module.exports = passport => {
 			{
 				usernameField: "email"
 			},
-			function(email, password, done) {
+			function(email, done) {
 				User.findOne({ email: email }, function(err, user) {
 					if (err) {
 						return done(err);
