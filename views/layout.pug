@@ -7,8 +7,8 @@ html(lang="en")
     block title
     link(rel='stylesheet' href='node/bulma/css/bulma.min.css')
     link(rel="stylesheet", href="static/css/style.css")
-  body
-    nav(class="navbar", role="navigation")
+  body.has-navbar-fixed-top
+    nav(class="navbar is-fixed-top", role="navigation")
       .navbar-brand
         a.navbar-item(href="/")
           img(src="static/images/logo.png", alt="logo", width="112", height="28")
@@ -27,9 +27,8 @@ html(lang="en")
             .buttons
               a.button.is-link(href="/signup") #[strong Sign Up]
               a.button.is-link.is-outlined(href="/login") Login
-              
-    block content
-
+    .main
+      block content
     footer.footer.has-background-link
       .content.has-text-centered
         p.is-size-3.has-text-black.has-text-weight-bold Made with #[span(class="icon") #[i(class="fas fa-heart has-text-danger")]] and #[span(class="icon") #[i(class="fas fa-coffee has-text-black")]]

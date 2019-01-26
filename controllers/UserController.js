@@ -2,11 +2,11 @@ const passport = require("passport");
 require("../config/passport-config")(passport);
 
 exports.homepage = (req, res) => {
-	res.render("home");
+	res.render("index");
 };
 
 exports.user_signup_get = (req, res) => {
-	res.render("signup");
+	res.render("signup", { message: req.flash("signupMessage") });
 };
 
 exports.user_signup_post = passport.authenticate("local-signup", {
@@ -17,7 +17,7 @@ exports.user_signup_post = passport.authenticate("local-signup", {
 });
 
 exports.user_login_get = (req, res) => {
-	res.render("login");
+	res.render("login", { message: req.flash("loginMessage") });
 };
 
 exports.user_login_post = passport.authenticate("local-login", {

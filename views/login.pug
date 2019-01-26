@@ -2,3 +2,30 @@ extends layout.pug
 
 block title
   title Login
+
+block content
+  .columns.is-centered.is-marginless
+    .column.is-one-third
+      .field
+        h1.has-text-white.has-text-centered.has-text-weight-bold.has-background-link.subtitle.box MEMBER LOGIN
+      if message.length > 0
+        .box.has-background-danger.has-text-weight-bold= message
+      form.box(action="/login", method="post")
+        .field
+          label.label.has-text-link(for="email") E-Mail
+          .control.has-icons-left
+            input.input.is-medium.is-info(id="email", type="email", name="email", placeholder="email@example.com", required)
+            span.icon.is-left
+              i.fas.fa-envelope.has-text-link
+        .field
+          label.label.has-text-link(for="password") Password
+          .control.has-icons-left
+            input.input.is-medium.is-info(id="password", type="password", name="password", placeholder="****************", required)
+            span.icon.is-left
+              i.fas.fa-lock.has-text-link
+        hr.navbar-divider
+        .field
+          .control
+            button.button.is-link.has-text-weight-bold.is-large.is-fullwidth.box(type="submit") LOGIN
+      .field
+        p.has-text-centered.has-text-weight-bold Need an account? #[a(href="/signup") #[strong Sign Up]]

@@ -1,0 +1,64 @@
+{
+    "version": 2,
+    "name": "2cycler",
+    "builds": [
+        {
+            "src": "./views/*.pug",
+            "use": "@now/static"
+        },
+        {
+            "src": "./public/images/*.png",
+            "use": "@now/static"
+        },
+        {
+            "src": "./public/css/*.css",
+            "use": "@now/static"
+        },
+        {
+            "src": "*.env",
+            "use": "@now/static"
+        },
+        {
+            "src": "*.js",
+            "use": "@now/node-server",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        },
+        {
+            "src": "./config/*.js",
+            "use": "@now/node-server",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        },
+        {
+            "src": "/controllers/*.js",
+            "use": "@now/node",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        },
+        {
+            "src": "/models/*.js",
+            "use": "@now/node",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        },
+        {
+            "src": "./public/js/*.js",
+            "use": "@now/node",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        },
+        {
+            "src": "./routes/*.js",
+            "use": "@now/node",
+            "config": {
+                "maxLambdaSize": "20mb"
+            }
+        }
+    ]
+}
