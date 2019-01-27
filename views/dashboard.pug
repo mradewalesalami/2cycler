@@ -2,3 +2,9 @@ extends layout.pug
 
 block title
   title Dashboard
+
+block content
+  .content
+    span= user.email
+    span= user.first_name
+    span= user.last_name

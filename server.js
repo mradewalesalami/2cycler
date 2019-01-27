@@ -1,23 +1,21 @@
-require("dotenv").config();
 const express = require("express");
-const body_parser = require("body-parser");
+const bodyParser = require("body-parser");
 const session = require("express-session");
-const port = process.env.PORT || 3000;
-const passport = require("passport");
-require("./config/passport-config")(passport);
 const flash = require("connect-flash");
-const router = require("./routes/Route");
 const mongoose = require("mongoose");
-const mongoose_option = {
+const config = require("./config/config");
+const router = require("./routes/route");
+const port = config.port || 3000;
+const app = express();
+
+const dbOption = {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useFindAndModify: false
 };
-const app = express();
-
 mongoose.connect(
-	process.env.DB_HOST,
-	mongoose_option
+	config.dbUri,
+	dbOption
 );
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
@@ -29,19 +27,17 @@ db.on("connected", () => {
 
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
-app.use('/static', express.static("public"));
+app.use("/static", express.static("public"));
 app.use("/node", express.static(`${__dirname}/node_modules/`));
-app.use(body_parser.json());
-app.use(body_parser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
 	session({
-		secret: process.env.SESSION_SECRET,
+		secret: config.sessionSecret,
 		resave: false,
 		saveUninitialized: false
 	})
 );
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
 app.use("/", router);
 

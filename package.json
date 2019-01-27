@@ -15,14 +15,10 @@
 		"bcrypt": "^3.0.3",
 		"bulma": "^0.7.2",
 		"connect-flash": "^0.1.1",
-		"dotenv": "^6.2.0",
 		"express": "^4.16.4",
 		"express-session": "^1.15.6",
-		"express-validator": "^5.3.1",
 		"mongoose": "^5.4.4",
 		"nodemailer": "^5.1.1",
-		"passport": "^0.4.0",
-		"passport-local": "^1.0.0",
 		"pug": "^2.0.3"
 	},
 	"devDependencies": {

@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const user_controller = require("../controllers/UserController");
+const userController = require("../controllers/user-controller");
 
-router.get("/", user_controller.homepage);
-router.get("/signup", user_controller.user_signup_get);
-router.post("/signup", user_controller.user_signup_post);
-router.get("/login", user_controller.user_login_get);
-router.post("/login", user_controller.user_login_post);
-router.get("/edit", user_controller.user_update_get);
-router.patch("/edit", user_controller.user_update_post);
-router.get("/profile", user_controller.user_profile);
-router.get("/dashboard", user_controller.user_dashboard);
-router.get("/about", user_controller.about_page);
-router.get("/faq", user_controller.faq_page);
-router.get("/contact-us", user_controller.contact_us);
-router.get("/logout", user_controller.user_logout);
+router.get("/", userController.homepage);
+router.get("/signup", userController.userSignupGet);
+router.post("/signup", userController.userSignupPost);
+router.get("/login", userController.userLoginGet);
+router.post("/login", userController.userLoginPost);
+router.get("/edit", userController.userUpdateGet);
+router.patch("/edit", userController.userUpdatePost);
+router.get("/profile", userController.userProfile);
+router.get("/dashboard", userController.userDashboard);
+router.get("/about", userController.aboutPage);
+router.get("/faq", userController.faqPage);
+router.get("/contact-us", userController.contactUs);
+router.get("/logout", userController.userLogout);
 
 module.exports = router;
